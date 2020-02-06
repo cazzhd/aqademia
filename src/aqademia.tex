@@ -4,6 +4,7 @@
 
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{hologo}
 
 % Document title and licence
 
@@ -11,7 +12,7 @@
 	\title{Aqademia}
 	\author{Groctel}
 	\date{\today}
-	\newcommand\thesubtitle{ --- A TeX template}
+	\newcommand\thesubtitle{ --- A \hologo{XeTeX}\ template}
 	\newcommand\theorganization{University of GitHub}
 	\newcommand\therepository{\url{https://github.com/Groctel/aqademia}}
 \usepackage[type={CC},             % Createve commons
@@ -31,7 +32,7 @@
 \usepackage{vmargin}
 	\setpapersize{A4}
 	\setmarginsrb{2 cm}   % Left margin
-					 {1.5 cm} % Top margin
+	             {1.5 cm} % Top margin
 	             {2 cm}   % Text width
 	             {1.5 cm} % Text height
 	             {1 cm}   % Header height
@@ -45,21 +46,21 @@
 \usepackage{fancyhdr}
 	\pagestyle{fancy}
 	\fancyhf{}
-	\lhead{Sistemas operativos}
+	\lhead{Aqademia}
 	\rhead{\theauthor}
 	\cfoot{\thepage}
 \usepackage{titlesec}
-	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Módulo \thechapter:\\}{.5em}{}[]
-	\titleformat{\section}[block]{\normalfont\bfseries\huge}{Sesión\ \thesection:}{.5em}{}[]
-	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\ \thesubsection:}{.5em}{}[]
-	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\thesubsubsection:}{.5em}{}[]
+	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Part \thechapter:\\\ }{0pt}{}[]
+	\titleformat{\section}[block]{\normalfont\bfseries\huge}{Session\ \thesection:\ }{0pt}{}[]
+	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\ \thesubsection:\ }{0pt}{}[]
+	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\thesubsubsection:\ }{0pt}{}[]
 	\titlespacing*{\chapter}{0pt}{0pt}{30pt}
 \usepackage{hyperref}
 	\hypersetup{colorlinks = true,
-					linkcolor  = black,
-               filecolor  = black,
-               urlcolor   = gray
-              }
+	            linkcolor  = black,
+	            filecolor  = black,
+	            urlcolor   = darkgray
+	           }
 \usepackage[toc,page]{appendix}
 \usepackage{natbib}
 \usepackage{parskip}
@@ -71,6 +72,7 @@
 	\graphicspath{{img/}}
 \usepackage{tikz}
 \usepackage{xcolor}
+	\definecolor{listing-background} {HTML} {f7f7f7}
 	\definecolor{listing-numbers}    {HTML} {8e8e8e}
 	\definecolor{listing-text-color} {HTML} {2c2c2c}
 	\definecolor{listing-keyword}    {HTML} {6a2398}
@@ -80,18 +82,20 @@
 	\definecolor{listing-string}     {HTML} {568a34}
 	\definecolor{listing-comment}    {HTML} {8e8e8e}
 
+% Tables
+
+\usepackage{array}
+\usepackage{booktabs}
+
 % Listings
 
 \usepackage{listings}
-	\lstset{defaultdialect=[5.3]Lua}
-	\lstset{defaultdialect=[x86masm]Assembler}
-
-	\lstdefinestyle{customc}{basicstyle = \color{listing-text-color}\linespread{1.0}\small\ttfamily{},
+	\lstdefinestyle{aqademia-listings}{basicstyle = \color{listing-text-color}\linespread{1.0}\small\ttfamily{},
 	                         backgroundcolor  = \color{listing-background},
 	                         numbers          = left,
 	                         breaklines       = true,
 	                         breakindent      = 0pt,
-									 frame            = single,
+	                         frame            = single,
 	                         xleftmargin      = 0cm,
 	                         framexleftmargin = 0.08cm,
 	                         tabsize          = 3,
@@ -121,11 +125,11 @@
 		                         {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
 		                         {”}{{''}}1
 	                        }
-	\lstset{escapechar=@,style=customc}
+	\lstset{escapechar=@,style=aqademia-listings}
 
 % Standalone command definitions and redefinitions
 
-\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\code}[1]{\begingroup\fontsize{9pt}{12pt}\selectfont\texttt{#1}\endgroup}
 
 % Document composition
 
@@ -135,7 +139,7 @@
 
 \begin{titlepage}
 	\begin{center}
-			  \includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
+		\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
 
 		\textsc{\Huge\theorganization}\\
 		\rule{\linewidth}{0.2 mm}\\[0.3 cm]
@@ -156,10 +160,22 @@
 
 % Document files
 
+\chapter{Getting to know Aqademia}
+
+\input{input/intro.tex}
+\input{input/properties.tex}
+\pagebreak
+\input{input/dependencies.tex}
+\input{input/building.tex}
+
 % Appendices formatting and files
 
 \setcounter{chapter}{0}
-\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:}{.5em}{}[]
-\renewcommand{\thesubsection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
+\renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
+\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
+\titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
+\titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
+
+\input{input/appendix.tex}
 
 \end{document}
