@@ -1,8 +1,8 @@
 # Aqademia
 
-**A TeX template for printable academic documents.**
+**A XeTeX template for printable academic documents.**
 
-This is a custom TeX template designed for note taking and posterior printing (hence the serif font).
+This is a custom XeTeX template designed for note taking and posterior printing (hence the serif font).
 It's a redesign of [advy99](https://github.com/advy99)'s template, which is a heavy redesign of one [Dunspa](https://github.com/Dunspa) provided us with.
 We regretably can't find the primary source anywhere, sorry about that.
 The listings style was inspired by [Wandmalfarbe](https://github.com/Wandmalfarbe)'s Eisvogel.
