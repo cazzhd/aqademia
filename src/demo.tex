@@ -1,0 +1,31 @@
+\input{aqademia.tex}
+
+% Document composition
+
+\begin{document}
+
+\aqtitle
+\tableofcontents
+
+% Document files
+
+\chapter{Getting to know Aqademia}
+
+\input{input/intro.tex}
+\input{input/properties.tex}
+\pagebreak
+\input{input/dependencies.tex}
+\input{input/building.tex}
+
+% Appendices formatting and files
+
+\setcounter{chapter}{0}
+\renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
+\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
+\titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
+\titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
+
+\input{input/appendix.tex}
+
+\end{document}
+

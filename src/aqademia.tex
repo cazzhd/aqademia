@@ -128,54 +128,27 @@
 	\lstset{escapechar=@,style=aqademia-listings}
 
 % Standalone command definitions and redefinitions
+%	\aqtitle -> Render the title page
+%	\code -> Print text in monospaced font its size scaled down to the regular font size
 
+\newcommand{\aqtitle}{\begin{titlepage}
+                      	\begin{center}
+                      		\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
+
+                      		\textsc{\Huge\theorganization}\\
+                      		\rule{\linewidth}{0.2 mm}\\[0.3 cm]
+                      			{\huge\bfseries\thetitle\thesubtitle}\\
+                      		\rule{\linewidth}{0.2 mm}\\[1 cm]
+
+                      		\vfill
+
+                      		\Large{\textbf{\theauthor}}\\[0.1cm]
+                      		\large{\therepository}\\[0.5 cm]
+                      		{\large \thedate}\\[1.5 cm]
+                      	\end{center}
+
+                      	{\doclicenseThis}
+                      \end{titlepage}
+                     }
 \newcommand{\code}[1]{\begingroup\fontsize{9pt}{12pt}\selectfont\texttt{#1}\endgroup}
 
-% Document composition
-
-\begin{document}
-
-% Title page and table of contents
-
-\begin{titlepage}
-	\begin{center}
-		\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
-
-		\textsc{\Huge\theorganization}\\
-		\rule{\linewidth}{0.2 mm}\\[0.3 cm]
-			{\huge\bfseries\thetitle\thesubtitle}\\
-		\rule{\linewidth}{0.2 mm}\\[1 cm]
-
-		\vfill
-
-		\Large{\textbf{\theauthor}}\\[0.1cm]
-		\large{\therepository}\\[0.5 cm]
-		{\large \thedate}\\[1.5 cm]
-	\end{center}
-
-	{\doclicenseThis}
-\end{titlepage}
-
-\tableofcontents
-
-% Document files
-
-\chapter{Getting to know Aqademia}
-
-\input{input/intro.tex}
-\input{input/properties.tex}
-\pagebreak
-\input{input/dependencies.tex}
-\input{input/building.tex}
-
-% Appendices formatting and files
-
-\setcounter{chapter}{0}
-\renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
-\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
-\titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
-\titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
-
-\input{input/appendix.tex}
-
-\end{document}
