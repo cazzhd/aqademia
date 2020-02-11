@@ -20,27 +20,27 @@ A demo is avaliable at the [releases](https://github.com/Groctel/aqademia/releas
 This document is designed to be printed in European A4 paper and to fit as much text as possible in a single page without becoming too crowded (check the margins in `marginsrb`).
 It uses `fancy` style headers and footers and coloured hyperlinks.
 
-### Default values
+### Argumentos
 
-This template provides some default values that can be changed to fit your document:
+This template provides some arguments to customize your document:
 
-| Value                          | Line | Default                                     | Description                                |
-| :----------------------------- | :--: | :------------------------------------------ | :----------------------------------------- |
-| `\title`                       |  11  | `Aqademia`                                  | Title of the document.                     |
-| `\author`                      |  12  | `Groctel`                                   | Author of the document.                    |
-| `\date`                        |  13  | `\today`                                    | Date of the last version of the document.  |
-| `\thesubtitle`                 |  14  | ` --- A TeX template`                       | Subtitle of the document (titlepage only). |
-| `\theorganization`             |  15  | `University of GitHub`                      | Organization or other supertitle.          |
-| `\therepository`               |  16  | `https://github.com/Groctel/aqademia`       | Link to the document's repository.         |
-| `doclicense`                   |  17  | `{CC}{by-nc-sa}{4.0}`                       | Licence of the document.                   |
-| `\lhead`                       |  48  | `Aqademia`                                  | Title of the document (header only).       |
-| `\titleformat{\chapter}`       |  52  | `Part \thechapter:\\`                       | Chapter formatting.                        |
-| `\titleformat{\section}`       |  53  | `Session\ \thesection:`                     | Section formatting.                        |
-| `\titleformat{\subsection}`    |  54  | `\S\ \thesubsection:`                       | Subsection formatting.                     |
-| `\titleformat{\subsubsection}` |  55  | `\thesubsubsection`                         | Subsubsection formatting.                  |
-| `\graphicspath`                |  71  | `img/`                                      | Picture searching path.                    |
-| `tabsize`                      |  97  | `3`                                         | Size of tabs in listings.                  |
-| `\titleformat{\chapter}`       | 162  | `Appendix\ \MakeUppercase{\alph{chapter}}:` | Chapter formatting (appendices only).      |
+| Argument       | Type   | Default     | Description                                                   |
+| :------------- | :----- | :---------- | :------------------------------------------------------------ |
+| `license`      | Bool   | `false`     | Whether to display the licence at the title page.             |
+| `subtitle`     | Bool   | `false`     | Whether to display the subtitle at the title page.            |
+| `toc`          | Bool   | `false`     | Whether to display the table of contents after the titlepage. |
+| `author`       | String |             | Author of the document.                                       |
+| `date`         | String | `\today`    | Date of the last version of the document.                     |
+| `graphics`     | String | `img/`      | Graphics directory.                                           |
+| `language`     | String | `english`   | Language provided to `babel`                                  |
+| `lmodifier`    | String | `by-nc-sap` | Modifier argumento for `doclicense`.                          |
+| `ltitle`       | String | `CC`        | Title argument of `doclicense`.                               |
+| `lversion`     | String | `4.0`       | Version argument for `doclicense`.                            |
+| `organization` | String |             | Organisation or other supertitle.                             |
+| `tab`          | String | `3`         | Size of tabs in listings.                                     |
+| `title`        | String |             | Title of the document.                                        |
+| `repository`   | String |             | Link to the document's repository.                            |
+| `subtitle`     | String |             | Subtitle of the document (titlepage only).                    |
 
 ## Dependencies
 

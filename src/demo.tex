@@ -1,11 +1,19 @@
-\input{aqademia.tex}
+\RequirePackage{hologo}
+\RequirePackage[title=Aqademia,
+                subtitle=A\ \hologo{XeTeX}\ template,
+                author=Groctel,
+                organization=University\ of\ GitHub,
+                repository=https://github.com/Groctel/aqademia,
+                license,
+                showsubtitle,
+                toc
+               ]{aqademia}
 
 % Document composition
 
 \begin{document}
 
-\aqtitle
-\tableofcontents
+\aqtitle%
 
 % Document files
 
@@ -19,12 +27,7 @@
 
 % Appendices formatting and files
 
-\setcounter{chapter}{0}
-\renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
-\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
-\titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
-\titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
-
+\aqappendices%
 \input{input/appendix.tex}
 
 \end{document}

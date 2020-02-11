@@ -1,35 +1,54 @@
+\ProvidesPackage{aqademia}
+
 \documentclass[10pt]{report}
+
+% Package options
+
+\RequirePackage{etoolbox}
+\RequirePackage{kvoptions}
+	\DeclareBoolOption{license}
+	\DeclareBoolOption{showsubtitle}
+	\DeclareBoolOption{toc}
+	\DeclareStringOption[]{author}
+	\DeclareStringOption[\today]{date}
+	\DeclareStringOption[img/]{graphics}
+	\DeclareStringOption[english]{language}
+	\DeclareStringOption[by-nc-sa]{lmodifier}
+	\DeclareStringOption[CC]{ltype}
+	\DeclareStringOption[4.0]{lversion}
+	\DeclareStringOption[]{organization}
+	\DeclareStringOption[3]{tab}
+	\DeclareStringOption[]{title}
+	\DeclareStringOption[]{repository}
+	\DeclareStringOption[]{subtitle}
+	\ProcessKeyvalOptions{aqademia}
 
 % Language and input encoding
 
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{hologo}
+\RequirePackage[\aqademia@language]{babel}
+\RequirePackage[utf8]{inputenc}
 
 % Document title and licence
 
-\usepackage{titling}
-	\title{Aqademia}
-	\author{Groctel}
-	\date{\today}
-	\newcommand\thesubtitle{ --- A \hologo{XeTeX}\ template}
-	\newcommand\theorganization{University of GitHub}
-	\newcommand\therepository{\url{https://github.com/Groctel/aqademia}}
-\usepackage[type={CC},             % Createve commons
-            modifier = {by-nc-sa}, % Attribution - NonCommercial - ShareAlike
-            version  = {4.0}       % 4.0 International
-           ]{doclicense}
+\RequirePackage{titling}
+	\title{\aqademia@title}
+	\author{\aqademia@author}
+	\date{\aqademia@date}
+\RequirePackage[type={\aqademia@ltype},           % Createve commons
+                modifier = {\aqademia@lmodifier}, % Attribution - NonCommercial - ShareAlike
+                version  = {\aqademia@lversion}   % 4.0 International
+               ]{doclicense}
 
 % Fonts
 
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{fontspec}
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{fontspec}
 	\setmonofont[Ligatures=TeX]{Liberation Mono}
 
 % Physical and text shaping and placement
 
-\usepackage{vmargin}
+\RequirePackage{vmargin}
 	\setpapersize{A4}
 	\setmarginsrb{2 cm}   % Left margin
 	             {1.5 cm} % Top margin
@@ -39,39 +58,39 @@
 	             {0.5 cm} % Header separation
 	             {0 cm}   % Footer height
 	             {1 cm}   % Footer separation
-\usepackage[bottom,   % Push all footnotes to the bottom of the page
-            multiple, % Allow formatting multiple footnotes for a single term
-            norule    % Remove the rule above the footnotes
-           ]{footmisc}
-\usepackage{fancyhdr}
+\RequirePackage[bottom,   % Push all footnotes to the bottom of the page
+                multiple, % Allow formatting multiple footnotes for a single term
+                norule    % Remove the rule above the footnotes
+               ]{footmisc}
+\RequirePackage{fancyhdr}
 	\pagestyle{fancy}
 	\fancyhf{}
-	\lhead{Aqademia}
+	\lhead{\aqademia@title}
 	\rhead{\theauthor}
 	\cfoot{\thepage}
-\usepackage{titlesec}
+\RequirePackage{titlesec}
 	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Part \thechapter:\\\ }{0pt}{}[]
 	\titleformat{\section}[block]{\normalfont\bfseries\huge}{Session\ \thesection:\ }{0pt}{}[]
 	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\ \thesubsection:\ }{0pt}{}[]
 	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\thesubsubsection:\ }{0pt}{}[]
 	\titlespacing*{\chapter}{0pt}{0pt}{30pt}
-\usepackage{hyperref}
+\RequirePackage{hyperref}
 	\hypersetup{colorlinks = true,
 	            linkcolor  = black,
 	            filecolor  = black,
 	            urlcolor   = darkgray
 	           }
-\usepackage[toc,page]{appendix}
-\usepackage{natbib}
-\usepackage{parskip}
-\usepackage{url}
+\RequirePackage[toc,page]{appendix}
+\RequirePackage{natbib}
+\RequirePackage{parskip}
+\RequirePackage{url}
 
 % Colour and graphics settings
 
-\usepackage{graphicx}
-	\graphicspath{{img/}}
-\usepackage{tikz}
-\usepackage{xcolor}
+\RequirePackage{graphicx}
+	\graphicspath{{\aqademia@graphics}}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
 	\definecolor{listing-background} {HTML} {f7f7f7}
 	\definecolor{listing-numbers}    {HTML} {8e8e8e}
 	\definecolor{listing-text-color} {HTML} {2c2c2c}
@@ -84,12 +103,12 @@
 
 % Tables
 
-\usepackage{array}
-\usepackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{booktabs}
 
 % Listings
 
-\usepackage{listings}
+\RequirePackage{listings}
 	\lstdefinestyle{aqademia-listings}{basicstyle = \color{listing-text-color}\linespread{1.0}\small\ttfamily{},
 	                         backgroundcolor  = \color{listing-background},
 	                         numbers          = left,
@@ -98,7 +117,7 @@
 	                         frame            = single,
 	                         xleftmargin      = 0cm,
 	                         framexleftmargin = 0.08cm,
-	                         tabsize          = 3,
+	                         tabsize          = \aqademia@tab,
 	                         numberstyle      = \color{listing-numbers},
 	                         keywordstyle     = {\color{listing-keyword}\bfseries},
 	                         keywordstyle     = {[2]\color{listing-keyword-2}\bfseries},
@@ -128,27 +147,39 @@
 	\lstset{escapechar=@,style=aqademia-listings}
 
 % Standalone command definitions and redefinitions
+%  \aqappendices -> Start appendix format for the rest of the document
 %	\aqtitle -> Render the title page
 %	\code -> Print text in monospaced font its size scaled down to the regular font size
 
+\newcommand{\aqappendices}{\setcounter{chapter}{0}
+                           \renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
+                           \titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
+                           \titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
+                           \titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
+                          }
 \newcommand{\aqtitle}{\begin{titlepage}
-                      	\begin{center}
-                      		\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
+                     	\begin{center}
+                     		\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
 
-                      		\textsc{\Huge\theorganization}\\
-                      		\rule{\linewidth}{0.2 mm}\\[0.3 cm]
-                      			{\huge\bfseries\thetitle\thesubtitle}\\
-                      		\rule{\linewidth}{0.2 mm}\\[1 cm]
+                     		\textsc{\Huge \aqademia@organization}\\
+                     		\rule{\linewidth}{0.2 mm}\\[0.3 cm]
+                      		{\huge\bfseries\aqademia@title\ifaqademia@showsubtitle\ --- \aqademia@subtitle\fi}\\
+                     		\rule{\linewidth}{0.2 mm}\\[1 cm]
 
-                      		\vfill
+                     		\vfill
 
-                      		\Large{\textbf{\theauthor}}\\[0.1cm]
-                      		\large{\therepository}\\[0.5 cm]
-                      		{\large \thedate}\\[1.5 cm]
-                      	\end{center}
+                     		\Large{\textbf{\theauthor}}\\[0.1cm]
+                      		\large{\url{\aqademia@repository}}\\[0.5 cm]
+                     		{\large \thedate}\\[1.5 cm]
+                     	\end{center}
 
-                      	{\doclicenseThis}
-                      \end{titlepage}
-                     }
+                     	\ifaqademia@license
+                     		{\doclicenseThis}
+                     	\fi
+                     \end{titlepage}
+
+                     \ifaqademia@toc
+                     	\tableofcontents
+                     \fi
+                    }
 \newcommand{\code}[1]{\begingroup\fontsize{9pt}{12pt}\selectfont\texttt{#1}\endgroup}
-
