@@ -29,7 +29,9 @@ This template provides some arguments to customize your document:
 | `license`      | Bool   | `false`     | Whether to display the licence at the title page.             |
 | `subtitle`     | Bool   | `false`     | Whether to display the subtitle at the title page.            |
 | `toc`          | Bool   | `false`     | Whether to display the table of contents after the titlepage. |
+| `achapter`     | String | `Appendix`  |  Chapter text (appendices only).                              |
 | `author`       | String |             | Author of the document.                                       |
+| `chapter`      | String | `Part`      | Chapter text.                                                 |
 | `date`         | String | `\today`    | Date of the last version of the document.                     |
 | `graphics`     | String | `img/`      | Graphics directory.                                           |
 | `language`     | String | `english`   | Language provided to `babel`                                  |
@@ -37,6 +39,7 @@ This template provides some arguments to customize your document:
 | `ltitle`       | String | `CC`        | Title argument of `doclicense`.                               |
 | `lversion`     | String | `4.0`       | Version argument for `doclicense`.                            |
 | `organization` | String |             | Organisation or other supertitle.                             |
+| `section`      | String | `Session`   | Section text.                                                 |
 | `tab`          | String | `3`         | Size of tabs in listings.                                     |
 | `title`        | String |             | Title of the document.                                        |
 | `repository`   | String |             | Link to the document's repository.                            |

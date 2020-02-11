@@ -9,7 +9,9 @@
 	\DeclareBoolOption{license}
 	\DeclareBoolOption{showsubtitle}
 	\DeclareBoolOption{toc}
+	\DeclareStringOption[Appendix]{achapter}
 	\DeclareStringOption[]{author}
+	\DeclareStringOption[Part]{chapter}
 	\DeclareStringOption[\today]{date}
 	\DeclareStringOption[img/]{graphics}
 	\DeclareStringOption[english]{language}
@@ -17,6 +19,7 @@
 	\DeclareStringOption[CC]{ltype}
 	\DeclareStringOption[4.0]{lversion}
 	\DeclareStringOption[]{organization}
+	\DeclareStringOption[Session]{section}
 	\DeclareStringOption[3]{tab}
 	\DeclareStringOption[]{title}
 	\DeclareStringOption[]{repository}
@@ -69,8 +72,8 @@
 	\rhead{\theauthor}
 	\cfoot{\thepage}
 \RequirePackage{titlesec}
-	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Part \thechapter:\\\ }{0pt}{}[]
-	\titleformat{\section}[block]{\normalfont\bfseries\huge}{Session\ \thesection:\ }{0pt}{}[]
+	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{\aqademia@chapter \thechapter:\\\ }{0pt}{}[]
+	\titleformat{\section}[block]{\normalfont\bfseries\huge}{\aqademia@section\ \thesection:\ }{0pt}{}[]
 	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\ \thesubsection:\ }{0pt}{}[]
 	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\thesubsubsection:\ }{0pt}{}[]
 	\titlespacing*{\chapter}{0pt}{0pt}{30pt}
@@ -152,8 +155,8 @@
 %	\code -> Print text in monospaced font its size scaled down to the regular font size
 
 \newcommand{\aqappendices}{\setcounter{chapter}{0}
-                           \renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{subsection}}
-                           \titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Appendix\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
+                           \renewcommand{\thesection}{\MakeUppercase{\alph{chapter}}.\arabic{section}}
+                           \titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{\aqademia@achapter\ \MakeUppercase{\alph{chapter}}:\ }{0pt}{}[]
                            \titleformat{\section}[block]{\normalfont\bfseries\Large}{\S\ \thesection:\ }{0pt}{}[]
                            \titleformat{\subsection}[block]{\normalfont\bfseries\large}{\thesubsection:\ }{0pt}{}[]
                           }
