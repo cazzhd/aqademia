@@ -20,7 +20,7 @@ A demo is avaliable at the [releases](https://github.com/Groctel/aqademia/releas
 This document is designed to be printed in European A4 paper and to fit as much text as possible in a single page without becoming too crowded (check the margins in `marginsrb`).
 It uses `fancy` style headers and footers and coloured hyperlinks.
 
-### Argumentos
+### Arguments
 
 This template provides some arguments to customize your document:
 
