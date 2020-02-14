@@ -11,7 +11,7 @@
 	\DeclareBoolOption{toc}
 	\DeclareStringOption[Appendix]{achapter}
 	\DeclareStringOption[]{author}
-	\DeclareStringOption[Part]{chapter}
+	\DeclareStringOption[Part ]{chapter}
 	\DeclareStringOption[\today]{date}
 	\DeclareStringOption[img/]{graphics}
 	\DeclareStringOption[english]{language}
@@ -19,7 +19,9 @@
 	\DeclareStringOption[CC]{ltype}
 	\DeclareStringOption[4.0]{lversion}
 	\DeclareStringOption[]{organization}
-	\DeclareStringOption[Session]{section}
+	\DeclareStringOption[\S]{section}
+	\DeclareStringOption[\S]{subsection}
+	\DeclareStringOption[\S]{subsubsection}
 	\DeclareStringOption[3]{tab}
 	\DeclareStringOption[]{title}
 	\DeclareStringOption[]{repository}
@@ -72,10 +74,10 @@
 	\rhead{\theauthor}
 	\cfoot{\thepage}
 \RequirePackage{titlesec}
-	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{\aqademia@chapter\ \thechapter:\\\ }{0pt}{}[]
-	\titleformat{\section}[block]{\normalfont\bfseries\huge}{\aqademia@section\ \thesection:\ }{0pt}{}[]
-	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\ \thesubsection:\ }{0pt}{}[]
-	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\thesubsubsection:\ }{0pt}{}[]
+	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{\aqademia@chapter\thechapter:\\\ }{0pt}{}[]
+	\titleformat{\section}[block]{\normalfont\bfseries\huge}{\aqademia@section\thesection:\ }{0pt}{}[]
+	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\aqademia@subsection\thesubsection:\ }{0pt}{}[]
+	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\aqademia@subsubsection\thesubsubsection:\ }{0pt}{}[]
 	\titlespacing*{\chapter}{0pt}{0pt}{30pt}
 \RequirePackage{hyperref}
 	\hypersetup{colorlinks = true,
