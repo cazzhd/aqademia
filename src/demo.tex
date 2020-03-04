@@ -1,20 +1,28 @@
-\RequirePackage{hologo}
-\RequirePackage[title=Aqademia,
-                subtitle=A\ \hologo{XeTeX}\ template,
-                author=Groctel,
-                organization=University\ of\ GitHub,
-                repository=https://github.com/Groctel/aqademia,
-					 subsection=,
-                license,
-                showsubtitle,
-                toc
-               ]{aqademia}
+\documentclass[10pt]{report}
+
+% Language and input encoding
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% Document settings
+
+\usepackage{titling}
+	\author{Groctel}
+	\title{Aqademia}
+	\date{\today}
+
+\usepackage{hologo}
+\usepackage[title=\thetitle]{aqademia}
 
 % Document composition
 
 \begin{document}
 
-\aqtitle%
+\aqtitlepage{University of GitHub}
+            {A \hologo{XeTeX} template}
+            {https://github.com/Groctel/aqademia}
+\tableofcontents
 
 % Document files
 
@@ -27,8 +35,8 @@
 
 % Appendices formatting and files
 
-\aqappendices%
+\aqapp{Appendix~}%
+
 \input{input/appendix.tex}
 
 \end{document}
-
