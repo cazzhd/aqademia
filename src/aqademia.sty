@@ -53,10 +53,10 @@
 	\rhead{\theauthor}
 	\cfoot{\thepage}
 \RequirePackage{titlesec}
-	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Chapter~\thechapter:\\}{0pt}{}[]
-	\titleformat{\section}[block]{\normalfont\bfseries\huge}{\S\thesection:\ }{0pt}{}[]
-	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\thesubsection:\ }{0pt}{}[]
-	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\S\thesubsubsection:\ }{0pt}{}[]
+	\titleformat{\chapter}[block]{\normalfont\bfseries\Huge}{Chapter \thechapter:\\}{0pt}{}[]
+	\titleformat{\section}[block]{\normalfont\bfseries\huge}{\S\thesection: }{0pt}{}[]
+	\titleformat{\subsection}[block]{\normalfont\bfseries\Large}{\S\thesubsection: }{0pt}{}[]
+	\titleformat{\subsubsection}[block]{\normalfont\bfseries\large}{\S\thesubsubsection: }{0pt}{}[]
 	\titlespacing*{\chapter}{0pt}{0pt}{30pt}
 \RequirePackage{hyperref}
 	\hypersetup{colorlinks = true,
@@ -143,17 +143,17 @@
 
 \newcommand{\aqsec}[1]{%
 	\titleformat{\section}[block]
-	            {\normalfont\bfseries\huge}{#1\thesection:~}{0pt}{}[]
+	            {\normalfont\bfseries\huge}{#1\thesection: }{0pt}{}[]
 }
 
 \newcommand{\aqssec}[1]{%
 	\titleformat{\subsection}[block]
-	            {\normalfont\bfseries\Large}{#1\thesubsection:~}{0pt}{}[]
+	            {\normalfont\bfseries\Large}{#1\thesubsection: }{0pt}{}[]
 }
 
 \newcommand{\aqsssec}[1]{%
 	\titleformat{\subsubsection}[block]
-	            {\normalfont\bfseries\large}{#1\thesubsubsection:~}{0pt}{}[]
+	            {\normalfont\bfseries\large}{#1\thesubsubsection: }{0pt}{}[]
 }
 
 \newcommand{\aqapp}[1]{%
