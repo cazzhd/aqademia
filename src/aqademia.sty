@@ -164,7 +164,8 @@
 					 {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}}
 	\renewcommand{\thesubsubsection}
 					 {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-	\aqchap{#1}
+	\titleformat{\chapter}[block]
+					{\normalfont\bfseries\Huge}{#1\MakeUppercase{\alph{chapter}}:\\}{0pt}{}[]
 }
 
 \newcommand{\aqtitlepage}[4][]{%
