@@ -161,14 +161,14 @@
 	\renewcommand{\thesection}
 	             {\MakeUppercase{\alph{chapter}}.\arabic{section}}
 	\renewcommand{\thesubsection}
-					 {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}}
+	             {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}}
 	\renewcommand{\thesubsubsection}
-					 {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+	             {\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 	\titleformat{\chapter}[block]
-					{\normalfont\bfseries\Huge}{#1\MakeUppercase{\alph{chapter}}:\\}{0pt}{}[]
+	            {\normalfont\bfseries\Huge}{#1\MakeUppercase{\alph{chapter}}:\\}{0pt}{}[]
 }
 
-\newcommand{\aqtitlepage}[4][]{%
+\newcommand{\aqtitlepage}[5][]{%
 	\begin{titlepage}
 		\begin{center}
 			\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
@@ -184,9 +184,9 @@
 
 			\vfill
 
-			\Large{\textbf{\theauthor}}
-			\ifthenelse{\isempty{#4}}{}
-				{\\[0.1cm]\large{\url{#4}}}\\[0.5 cm]
+			\Large{\textbf{#4}}
+			\ifthenelse{\isempty{#5}}{}
+				{\\[0.1cm]\large{\url{#5}}}\\[0.5 cm]
 			\large{\thedate}\\[1.5 cm]
 		\end{center}
 
