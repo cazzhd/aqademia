@@ -15,6 +15,7 @@
 
 	\ProcessKeyvalOptions{aqademia}
 \RequirePackage{xifthen}
+\RequirePackage{xparse}
 
 % Licence options
 
@@ -136,27 +137,27 @@
 %	\aqtitle -> Render the title page
 %	\code -> Print text in monospaced font its size scaled down to the regular font size
 
-\newcommand{\aqchap}[1]{%
+\NewDocumentCommand{\aqchap}{m}{%
 	\titleformat{\chapter}[block]
 	            {\normalfont\bfseries\Huge}{#1\thechapter:\\}{0pt}{}[]
 }
 
-\newcommand{\aqsec}[1]{%
+\NewDocumentCommand{\aqsec}{m}{%
 	\titleformat{\section}[block]
 	            {\normalfont\bfseries\huge}{#1\thesection: }{0pt}{}[]
 }
 
-\newcommand{\aqssec}[1]{%
+\NewDocumentCommand{\aqssec}{m}{%
 	\titleformat{\subsection}[block]
 	            {\normalfont\bfseries\Large}{#1\thesubsection: }{0pt}{}[]
 }
 
-\newcommand{\aqsssec}[1]{%
+\NewDocumentCommand{\aqsssec}{m}{%
 	\titleformat{\subsubsection}[block]
 	            {\normalfont\bfseries\large}{#1\thesubsubsection: }{0pt}{}[]
 }
 
-\newcommand{\aqapp}[1]{%
+\NewDocumentCommand{\aqapp}{m}{%
 	\setcounter{chapter}{0}
 	\renewcommand{\thesection}
 	             {\MakeUppercase{\alph{chapter}}.\arabic{section}}
@@ -168,25 +169,25 @@
 					{\normalfont\bfseries\Huge}{#1\MakeUppercase{\alph{chapter}}:\\}{0pt}{}[]
 }
 
-\newcommand{\aqtitlepage}[4][]{%
+\NewDocumentCommand{\aqtitlepage}{O{} O{\theauthor} m m m}{%
 	\begin{titlepage}
 		\begin{center}
 			\includegraphics[scale = 0.75]{titlepage.png}\\[0.5cm]
 
-			\ifthenelse{\isempty{#2}}{}
-				{\textsc{\Huge{#2}}\\}
+			\ifthenelse{\isempty{#3}}{}
+				{\textsc{\Huge{#3}}\\}
 
-			\ifthenelse{\isempty{#3}}
+			\ifthenelse{\isempty{#4}}
 				{\rule{\linewidth}{0.2 mm}\\[0.3 cm]}
 				{\rule{\linewidth}{0.2 mm}\\}
-			{\huge\bfseries\thetitle\ifthenelse{\isempty{#3}}{}{ --- #3\\}}
+			{\huge\bfseries\thetitle\ifthenelse{\isempty{#4}}{}{ --- #4\\}}
 			\rule{\linewidth}{0.2 mm}\\[1 cm]
 
 			\vfill
 
-			\Large{\textbf{\theauthor}}
-			\ifthenelse{\isempty{#4}}{}
-				{\\[0.1cm]\large{\url{#4}}}\\[0.5 cm]
+			\Large{\textbf{#2}}
+			\ifthenelse{\isempty{#5}}{}
+				{\\[0.1cm]\large{\url{#5}}}\\[0.5 cm]
 			\large{\thedate}\\[1.5 cm]
 		\end{center}
 
@@ -196,6 +197,6 @@
 	\end{titlepage}
 }
 
-\newcommand{\code}[1]{%
+\NewDocumentCommand{\code}{m}{%
 	\begingroup\fontsize{9pt}{12pt}\selectfont\texttt{#1}\endgroup
 }
