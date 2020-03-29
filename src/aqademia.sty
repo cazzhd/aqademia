@@ -159,6 +159,8 @@
 
 \NewDocumentCommand{\aqapp}{m}{%
 	\setcounter{chapter}{0}
+	\renewcommand{\thechapter}
+					 {\MakeUppercase{\alph{chapter}}}
 	\renewcommand{\thesection}
 	             {\MakeUppercase{\alph{chapter}}.\arabic{section}}
 	\renewcommand{\thesubsection}
