@@ -15,10 +15,21 @@ A demo is avaliable at the [releases](https://github.com/Groctel/aqademia/releas
 
 ## Dependencies
 
-The font used in listings is `Libertine Mono` (It is scaled down in inline code sections).
+The font used in listings is `Liberation Mono`.
 The document is designed to be build with `XeTeX`.
 
-## Building
+## Using and building
+
+A full `LaTeX` distribution is assumed.
+
+The template must be included manually in the file, be it by adding it to your `~/texmf` or by symlinking it to the template (the same way I do in the `src` directory).
+Until the template is considered feature complete, you will need to manually include it yourself, which you can do with a submodule:
+
+```sh
+git submodule add https://github.com/Groctel/aqademia
+```
+
+Build it the project with `xelatex` in the same directory where the main file is:
 
 ```sh
 cd src
@@ -27,7 +38,7 @@ xelatex aqademia.tex
 
 ## About appendices
 
-### Differences over sessions
+### Differences over sections
 
 While the chapter is declared outside the `input` files in the sessions, it is declared as the appendices header.
 The `section` command is substituted by the `subsection` command previously used, so that the style is conserved without losing a sectioning level.
@@ -47,6 +58,20 @@ Appendices are referred to as a letter, starting from letter `A`.
 This document is designed to be printed in European A4 paper and to fit as much text as possible in a single page without becoming too crowded (check the margins in `marginsrb`).
 It uses `fancy` style headers and footers and coloured hyperlinks.
 
+### Custom commands
+
+- **`\aqchap{text}`:** Matches the chapter indicator text to `text`.
+- **`\aqsec{text}`:** Matches the section indicator text to `text`.
+- **`\aqssec{text}`:** Matches the subsection indicator text to `text`.
+- **`\aqsssec{text}`:** Matches the subsubsection indicator text to `text`.
+- **`\aqapp{text}`:** Starts the appendices with their chapter indicator text set to `text`.
+- **`\aqtitlepage[nolicense][author]{org}{subtitle}{link}`:** Generates a title page with the following options:
+  - **`nolicense`:** Optionally remove the license from the title page
+  - **`author`:** Show an author different to `\theauthor`, which is shown in `rhead`
+  - **`org`:** Show the organisation over the title
+  - **`subtitle`:** Show a subtitle next to the document's title
+  - **`link`:** Show a url to the document's repository
+
 ### Arguments
 
 This template provides some arguments to customize your document:
@@ -58,3 +83,12 @@ This template provides some arguments to customize your document:
 | `lversion`  | String | `4.0`       | Version argument for `doclicense`.            |
 | `title`     | String |             | Title of the document to be printed in lhead. |
 | `tab`       | String | `3`         | Size of tabs in listings.                     |
+
+
+# TO-DO
+
+- Set a fallback font to remove the `Liberation Mono` dependency
+- Migrate from `vmargin` to `geometry`
+- Make `\code{}` a global function, not only usable in normal text
+- Upgrade the template to a `.cls` file
+- Stylise default tables
