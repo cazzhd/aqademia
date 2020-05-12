@@ -36,21 +36,6 @@ cd src
 xelatex aqademia.tex
 ```
 
-## About appendices
-
-### Differences over sections
-
-While the chapter is declared outside the `input` files in the sessions, it is declared as the appendices header.
-The `section` command is substituted by the `subsection` command previously used, so that the style is conserved without losing a sectioning level.
-
-#### Subsections
-
-The `subsection` level is also substituted by `subsubsection`.
-
-### Numbering
-
-Appendices are referred to as a letter, starting from letter `A`.
-
 ## Document properties
 
 ### Physical properties
@@ -71,6 +56,7 @@ It uses `fancy` style headers and footers and coloured hyperlinks.
   - **`org`:** Show the organisation over the title
   - **`subtitle`:** Show a subtitle next to the document's title
   - **`link`:** Show a url to the document's repository
+- **`\code{text}`:** Renders the `text` in monospaced font a bit scaled down to fit the paragraph's line height
 
 ### Arguments
 
