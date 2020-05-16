@@ -58,6 +58,12 @@ It uses `fancy` style headers and footers and coloured hyperlinks.
   - **`link`:** Show a url to the document's repository
 - **`\code{text}`:** Renders the `text` in monospaced font a bit scaled down to fit the paragraph's line height
 
+If you were previously using `texttt` for titles you can migrate it to `code` by running this command at the root of your tex project:
+
+```sh
+find -name "*.tex" -exec sed -i 's/texttt/code/' {} +
+```
+
 ### Arguments
 
 This template provides some arguments to customize your document:
@@ -75,6 +81,5 @@ This template provides some arguments to customize your document:
 
 - Set a fallback font to remove the `Liberation Mono` dependency
 - Migrate from `vmargin` to `geometry`
-- Make `\code{}` a global function, not only usable in normal text
 - Upgrade the template to a `.cls` file
 - Stylise default tables
