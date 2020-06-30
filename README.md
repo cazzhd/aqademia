@@ -79,6 +79,5 @@ This template provides some arguments to customize your document:
 
 # TO-DO
 
-- Set a fallback font to remove the `Liberation Mono` dependency
 - Upgrade the template to a `.cls` file
 - Stylise default tables
