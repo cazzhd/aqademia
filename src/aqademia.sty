@@ -33,16 +33,17 @@
 
 % Physical properties and text shaping and placement
 
-\RequirePackage{vmargin}
-	\setpapersize{A4}
-	\setmarginsrb{2 cm}   % Left margin
-	             {1.5 cm} % Top margin
-	             {2 cm}   % Text width
-	             {1.5 cm} % Text height
-	             {1 cm}   % Header height
-	             {0.5 cm} % Header separation
-	             {0 cm}   % Footer height
-	             {1 cm}   % Footer separation
+\RequirePackage{geometry}
+	\geometry{%
+		a4paper,
+		left     = 2cm,
+		right    = 2cm,
+		top      = 3cm,
+		bottom   = 2.3cm,
+		headsep  = 0.5cm,
+		footskip = 0.75cm
+	}
+
 \RequirePackage[bottom,   % Push all footnotes to the bottom of the page
                 multiple, % Allow formatting multiple footnotes for a single term
                 norule    % Remove the rule above the footnotes
