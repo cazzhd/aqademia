@@ -354,6 +354,6 @@
 		{0pt}{}
 	\titleformat{\subsection}[block]
 		{\normalfont\bfseries\Large}
-		\MakeUppercase{{\alph{chapter}}.\arabic{section}.\arabic{subsection}:~}
+		{\MakeUppercase{\alph{chapter}}.\arabic{section}.\arabic{subsection}:~}
 		{0pt}{}
 }
