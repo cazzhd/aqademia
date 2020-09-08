@@ -62,7 +62,6 @@
 \RequirePackage{titling}
 	\author{Anonymous}
 	\title{Untitled~document}
-	\date{\today}
 
 % ==============================================================================
 % Class internal commands
@@ -252,6 +251,8 @@
 
 	% Set the document title for the header
 	\let\AqademiaTitleString\thetitle%
+
+	\date{\today}
 }
 
 % ==============================================================================
