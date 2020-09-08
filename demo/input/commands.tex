@@ -1,0 +1,71 @@
+\chapter{Aqademia's custom commands}
+
+\section{\texttt{\textbackslash{}AqSetChapter}}
+
+\begin{lstlisting}[language=Tex]
+\AqSetChapter{Chapter~}
+\end{lstlisting}
+
+Sets the chapter's introductory string (\texttt{Chapter\~{}} by default).
+The command's definition adds a whitespace (\texttt{\~{}}) after the argument string.
+
+\section{\texttt{\textbackslash{}AqSetSection}}
+
+\begin{lstlisting}[language=Tex]
+\AqSetSection{\S}
+\end{lstlisting}
+
+Sets the section's introductory string (\texttt{\textbackslash{}S} by default).
+The command's definition doesn't automatically add a whitespace (\texttt{\~{}}) after the argument string for more versatility, so it must be added at the end if required.
+
+\section{\texttt{\textbackslash{}AqSetSubsection}}
+
+\begin{lstlisting}[language=Tex]
+\AqSetSubsection{}
+\end{lstlisting}
+
+Sets the subsection's introductory string (none by default).
+The command's definition doesn't automatically add a whitespace (\texttt{\~{}}) after the argument string for more versatility, so it must be added at the end if required.
+
+\section{\texttt{\textbackslash{}AqSetSubsubsection}}
+
+\begin{lstlisting}[language=Tex]
+\AqSetSubsubsection{}
+\end{lstlisting}
+
+Sets the subsubsection's introductory string (none by default).
+The command's definition doesn't automatically add a whitespace (\texttt{\~{}}) after the argument string for more versatility, so it must be added at the end if required.
+
+\section{\texttt{\textbackslash{}AqMaketitle}}
+
+\begin{lstlisting}[language=Tex]
+\AqMaketitle[author   = Atanasio Rubio Gil,
+             cover    = cover,
+             org      = University of GitHub,
+             title    = Aqademia,
+             subtitle = A fancy \LaTeX{} template,
+             url      = https://github.com/Groctel/aqademia]
+\end{lstlisting}
+
+Generates a custom titlepage to substitute \texttt{\textbackslash{}maketitle}.
+It displays \texttt{\textbackslash{}thetitle}, \texttt{\textbackslash{}theauthor} and \texttt{\textbackslash{}thedate} by default and can display the document's license it \texttt{doclicense} is loaded and a cover image if \texttt{graphicx} is loaded and the image is specified.
+
+\pagebreak
+
+It accepts the following key arguments:
+
+\begin{center}
+\begin{tabular}{l l l}
+	\textbf{Key}      & \textbf{Default}                   & \textbf{Description}                                 \\
+	\toprule
+	\texttt{author}   & \texttt{\textbackslash{}theauthor} & Document's author.                                   \\
+	\texttt{cover}    & \texttt{""}                        & Cover image name.                                    \\
+	\texttt{org}      & \texttt{""}                        & Organisation shown above the title line.             \\
+	\texttt{title}    & \texttt{\textbackslash{}thetitle}  & Document's title.                                    \\
+	\texttt{subtitle} & \texttt{""}                        & Document's subtitle shown next to the title.         \\
+	\texttt{url}      & \texttt{""}                        & Document's complementary url shown below the author. \\
+
+\end{tabular}
+\end{center}
+
+By themselves, \texttt{\textbackslash{}theauthor} defaults to \texttt{Anonymous} and \texttt{\textbackslash{}thetitle}, to \texttt{Untitled document}.

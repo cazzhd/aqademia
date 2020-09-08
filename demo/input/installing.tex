@@ -1,0 +1,21 @@
+\section{Installing Aqademia}
+
+Since it's still new, Aqademia has not been submitted to texlive.
+However, you can install this template by adding the \texttt{aqademic.cls} file to your project's root directory or by cloning it into your \texttt{\~{}/texmf} directory:
+
+\begin{lstlisting}[language=Sh]
+mkdir -p ~/texmf/tex/latex
+git clone https://github.com/Groctel/aqademia ~/texmf/tex/latex/aqademia/
+\end{lstlisting}
+
+You can also use the following recipe in you \texttt{Makefile} to install the template in compilation time:
+
+\begin{lstlisting}[language=Make]
+AQADEMIA = $${HOME}/texmf/tex/latex/aqademia/
+
+aqademia:
+	@  (find $(AQADEMIA) \
+	   && git -C $(AQADEMIA) pull) \
+	|| (mkdir -p ~/texmf/tex/latex \
+	   && git clone https://github.com/Groctel/aqademia $(AQADEMIA))
+\end{lstlisting}

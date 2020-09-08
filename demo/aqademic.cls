@@ -1,0 +1,1 @@
+../aqademic.cls

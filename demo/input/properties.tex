@@ -1,0 +1,49 @@
+This page is a quick demonstration of Aqademia's custom properties\footnote{%
+	Since this is just one page, you'll need to go to the appendices to find the header style!
+}.
+
+\section{Fancy sections}
+
+\subsection{Fancy subsections}
+
+\subsubsection{Fancy subsubsections}
+
+\begin{lstlisting}[language=C]
+class Log {
+private:
+	size_t pending;
+	std::vector<std::string> history;
+
+public:
+	 Log ();
+	~Log ();
+
+	size_t Pending () const;
+	void Record (const std::string text);
+	std::string Print () const;
+};
+\end{lstlisting}
+
+Maths are awesome and look great in this template:
+
+\[\lim_{n\to\infty} \frac{f(n)}{g(n)} = \lim_{n\to\infty} \frac{n^2}{{(4n+1)}^2+n} = \lim_{n\to\infty} \frac{n^2}{16n^2+9n+1} = \lim_{n\to\infty} \frac{1}{16}\]
+
+And here's a table for you:
+
+\begin{center}
+\begin{tabular}{l l l}
+	\textbf{Service}                     & \textbf{Type} & \textbf{Function}                               \\
+	\toprule
+	\textit{one to one}                  & Asynchronous  & \texttt{MPI\_Send()} or \texttt{MPI\_Receive()} \\
+	\midrule
+	\multirow{2}{*}{\textit{one to all}} & Diffusion     & \texttt{MPI\_Bcast()}                           \\
+                                        & Dispersion    & \texttt{MPI\_Scatter()}                         \\
+	\midrule
+	\multirow{2}{*}{\textit{all to one}} & Reduction     & \texttt{MPI\_Reduce()}                          \\
+                                        & Accumulation  & \texttt{MPI\_Gather()}                          \\
+	\midrule
+	\textit{all to all}                  & All diffuse   & \texttt{MPI\_Allgather()}                       \\
+\end{tabular}
+\end{center}
+
+Tables also define \texttt{L}, \texttt{C} and \texttt{R} column types for left-aligned, centered and right-aligned paragraphs respectively.
